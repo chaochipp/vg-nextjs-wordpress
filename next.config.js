@@ -12,11 +12,11 @@ const { protocol, hostname, port, pathname } = new URL(
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
+    domains: ['i0.wp.com','secure.gravatar.com','vietgame.asia'],
     remotePatterns: [
       {
-        protocol: protocol.slice(0, -1),
-        hostname,
-        port,
+        protocol: 'https',
+        hostname: 'i0.wp.com',
         pathname: `${pathname}/**`,
       },
     ],

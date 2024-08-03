@@ -33,7 +33,7 @@ export default function Post({ post, posts, preview }) {
             <article>
               <Head>
                 <title>
-                  {`${post.title} | Next.js Blog Example with ${CMS_NAME}`}
+                  {`${post.title} | Vietgame.asia - ENG`}
                 </title>
                 <meta
                   property="og:image"
@@ -82,8 +82,16 @@ export const getStaticProps: GetStaticProps = async ({
 export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
 
-  return {
-    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
-    fallback: true,
-  };
+  if(allPosts) {
+    return {
+      paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
+      fallback: true,
+    };
+  } else {
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
+  
 };
