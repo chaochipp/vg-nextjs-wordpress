@@ -50,6 +50,9 @@ export async function getAllPostsWithSlug() {
         edges {
           node {
             slug
+            review {
+              vgReviewScore
+            }
           }
         }
       }
@@ -69,6 +72,9 @@ export async function getAllPostsForHome(preview) {
             excerpt
             slug
             date
+            review {
+              vgReviewScore
+            }
             featuredImage {
               node {
                 sourceUrl
@@ -163,6 +169,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
               title
               excerpt
               content
+              review {
+                vgReviewScore
+              }
               author {
                 node {
                   ...AuthorFields
@@ -179,6 +188,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         edges {
           node {
             ...PostFields
+            review {
+              vgReviewScore
+            }
           }
         }
       }
