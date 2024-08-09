@@ -16,6 +16,7 @@ export default function MoreStories({ posts }) {
             author={node.author}
             slug={node.slug}
             excerpt={node.excerpt}
+            review={node.review}
           />
         ))}
       </div>

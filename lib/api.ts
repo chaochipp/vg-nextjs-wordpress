@@ -80,16 +80,6 @@ export async function getAllPostsForHome(preview) {
                 sourceUrl
               }
             }
-            author {
-              node {
-                name
-                firstName
-                lastName
-                avatar {
-                  url
-                }
-              }
-            }
           }
         }
       }
@@ -117,14 +107,7 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   const isRevision = isSamePost && postPreview?.status === "publish";
   const data = await fetchAPI(
     `
-    fragment AuthorFields on User {
-      name
-      firstName
-      lastName
-      avatar {
-        url
-      }
-    }
+
     fragment PostFields on Post {
       title
       excerpt
@@ -135,10 +118,8 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
           sourceUrl
         }
       }
-      author {
-        node {
-          ...AuthorFields
-        }
+      review {
+        vgReviewScore
       }
       categories {
         edges {
@@ -171,11 +152,6 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
               content
               review {
                 vgReviewScore
-              }
-              author {
-                node {
-                  ...AuthorFields
-                }
               }
             }
           }

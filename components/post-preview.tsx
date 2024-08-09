@@ -2,6 +2,7 @@ import Avatar from "./avatar";
 import Date from "./date";
 import CoverImage from "./cover-image";
 import Link from "next/link";
+import Score from "./score";
 
 export default function PostPreview({
   title,
@@ -10,12 +11,18 @@ export default function PostPreview({
   excerpt,
   author,
   slug,
+  review
 }) {
   return (
     <div>
-      <div className="mb-5">
+      <div className="mb-5 relative">
         {coverImage && (
+          <>
           <CoverImage title={title} coverImage={coverImage} slug={slug} />
+          {
+            review && <Score review={review}/>
+          }
+          </>
         )}
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
@@ -32,7 +39,7 @@ export default function PostPreview({
         className="text-lg leading-relaxed mb-4"
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
-      <Avatar author={author} />
+      {/* <Avatar author={author} /> */}
     </div>
   );
 }

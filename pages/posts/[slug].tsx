@@ -46,6 +46,7 @@ export default function Post({ post, posts, preview }) {
                 date={post.date}
                 author={post.author}
                 categories={post.categories}
+                review={post.review}
               />
               <PostBody content={post.content} />
               <footer>
