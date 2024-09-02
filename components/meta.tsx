@@ -1,8 +1,11 @@
 import Head from "next/head";
 import { CMS_NAME, HOME_OG_IMAGE_URL } from "../lib/constants";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 export default function Meta() {
   return (
+    <>
     <Head>
       <link
         rel="apple-touch-icon"
@@ -38,5 +41,7 @@ export default function Meta() {
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
     </Head>
+    <GoogleAnalytics gaId="G-D59MW3P321" />
+    </>
   );
 }
