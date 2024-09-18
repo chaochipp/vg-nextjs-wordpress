@@ -13,7 +13,6 @@ export default function PostHeader({
   categories,
   review
 }) {
-  console.log(review)
   return (
     <>
       <PostTitle>{title}</PostTitle>
